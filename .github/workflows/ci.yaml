@@ -17,3 +17,12 @@ jobs:
           go-version: ${{ matrix.go }}
       - run: go test
       - run: go run math.go
+
+    build:
+
+      runs-on: ubuntu-latest
+
+      steps:
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: docker build .  -t fc2.-ci-go:latest
